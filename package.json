@@ -1,6 +1,6 @@
 {
-    "name": "quick-notes",
-    "displayName": "Quick Notes",
+    "name": "quick-notes-full-path",
+    "displayName": "Quick Notes (full path version)",
     "description": "This extension enables you to take notes in vscode easily.",
     "version": "1.3.2",
     "engines": {
@@ -10,9 +10,9 @@
         "Other"
     ],
     "repository": {
-        "url": "https://github.com/sunliangqin/VSCodeQuickNotes.git"
+        "url": "https://github.com/stefnb/VSCodeQuickNotes.git"
     },
-    "publisher": "Liangqin",
+    "publisher": "stefnb",
     "activationEvents": [
         "onCommand:quickNotes.toggle"
     ],
@@ -27,16 +27,16 @@
         "keybindings": [
             {
                 "command": "quickNotes.toggle",
-                "key": "alt+`"
+                "key": "alt+tab"
             }
         ],
         "configuration": {
             "title": "Quick Notes",
             "properties": {
-                "quickNotes.fileName": {
+                "quickNotes.filePath": {
                     "type": "string",
-                    "default": "./.vscode/notes.txt",
-                    "description": "Quick notes file name."
+                    "default": "~/.vscode/notes.txt",
+                    "description": "Quick notes file path."
                 }
             }
         }

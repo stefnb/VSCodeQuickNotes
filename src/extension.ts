@@ -8,14 +8,13 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        const notesFileName = vscode.workspace.getConfiguration().get<string>('quickNotes.fileName');
-        if (!notesFileName) {
+        const notesFilePath = vscode.workspace.getConfiguration().get<string>('quickNotes.filePath');
+        if (!notesFilePath) {
             return;
         }
 
         const activeTextEditor = vscode.window.activeTextEditor;
-        const notesFilePath = path.join(workspaceFolders[0].uri.fsPath, notesFileName);
-        if (!activeTextEditor || activeTextEditor.document.fileName !== notesFilePath) {
+        if (!activeTextEditor || activeTextEditor.document.uri.fsPath !== notesFilePath) {
             const workspaceEdit = new vscode.WorkspaceEdit();
             workspaceEdit.createFile(vscode.Uri.file(notesFilePath), { overwrite: false, ignoreIfExists: true });
             await vscode.workspace.applyEdit(workspaceEdit);
